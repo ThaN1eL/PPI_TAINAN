@@ -1,10 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+:root {
+    --primary: #4254ba;
+    --ruby: #E0115F;
+}
+
 body{
     margin :0;
     background-color: #210002;
     font-family: Poppins;
     font-size: 15px;
 }
+
+/*NavBar*/
+.navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 7%;
+    position: fixed;
+    top: 0;left:0;right: 0;
+    z-index: 1000;
+}
+
+.navbar .navbar-nav a {
+    color: #aa3232;
+    display: inline-block;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    text-decoration: none;
+}
+
+.navbar .navbar-nav a:hover {
+    color: #fff;
+    background: #E0115F;
+    letter-spacing: 0.1rem;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.8);
+}
+
+.navbar .navbar-extra a{
+    color: #fff;
+    margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+    color: #f00;
+}
+
+/* Parallax */
 .banner{
     height: 100vh;
     position: relative;
@@ -117,6 +163,44 @@ body{
     height: 500px;
     object-fit: cover;
 }
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+    font-weight: 500;
+    font-size: 1.25rem;
+    }
+    
+    footer .links {
+        margin-bottom: 1.1rem;
+    }
+    
+    footer .links a:hover {
+        color: #fff;
+        background: #E0115F;
+        letter-spacing: 0.1rem;
+        border-radius: .5rem;
+    }
+    
+    footer .links a{
+        color:#aa3232;
+        padding: 0.7rem 1rem;
+        font-size: 1.3rem;
+        text-decoration: none;
+    }
+    
+    footer .credit {
+        font-size: 1.5rem;
+        color:white;
+    }
+    
+    footer .credit span{
+        color: #aa3232;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
 
 /*Media Queries*/
 @media screen and (max-width: 1920px) {

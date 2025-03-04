@@ -1,15 +1,11 @@
+/*Parallax*/
 let listBg = document.querySelectorAll('.bg');
 let listTab = document.querySelectorAll('.tab');
 let titleBanner = document.querySelector('.banner h1');
 let titleBanner2 = document.querySelector('.banner h2');
 
 window.addEventListener("scroll", (event) => {
-    /*scrollY is the web scrollbar position (pixel)*/
     let top = this.scrollY;
-    /*index is the order of classes bg (0,1,2,3,4,5,6,7,8)
-    When scrolling the web, the classes bg scroll down,
-    the bigger the index, the faster the movement
-    */
     listBg.forEach((bg, index) => {
         if(index != 0 && index != 8){
             bg.style.transform = `translateY(${(top*index/2)}px)`;
@@ -21,11 +17,9 @@ window.addEventListener("scroll", (event) => {
     titleBanner.style.transform = `translateY(${(top*4/2)}px)`;
     titleBanner2.style.transform = `translateY(${(top*4/2)}px)`;
 
-    /* parallax scroll in tab
-    when tab's position is less than 550 px
+    /* parallax scroll,when position less than 550
     from scrollbar position add active class to animate 
-    and vice versa
-    */
+    and vice versa*/
     listTab.forEach(tab =>{
         if(tab.offsetTop - top < 550){
             tab.classList.add('active');
@@ -34,3 +28,9 @@ window.addEventListener("scroll", (event) => {
         }
     })
 });  
+
+/* fixes #home*/ 
+document.querySelector('a[href="#home"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
