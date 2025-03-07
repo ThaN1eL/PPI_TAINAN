@@ -1,18 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="app()" x-init="init()">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPI Tainan</title>
+    <title>PPI Tainan News</title>
     <link rel="icon" type="image/png" href="img/icon1.png">
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Feather icon -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Alpine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
 </head>
 <body>
+    <!-- background  -->
+    <div class="bg-animation">
+        <div class="bubble bubble-1"></div>
+        <div class="bubble bubble-2"></div>
+        <div class="bubble bubble-3"></div>
+        <div class="bubble bubble-4"></div>
+    </div>
+
     <nav class="navbar">
         <a href="#" class="navbar-logo" id="landing">PPI <span>Tainan</span></a>
     </nav>
+
+    <!-- Header section -->
+    <div class="header-section">
+        <div class="header-container">
+            <h1 class="header-title">PPI Tainan News:</h1>
+            <div class="header-divider"></div>
+            <h2 class="header-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores eius voluptatum quaerat porro repellendus quod.</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filter-buttons">
+            <button data-filter="all" class="filter-btn active">All</button>
+            <button data-filter="tech" class="filter-btn">Tech</button>
+            <button data-filter="sport" class="filter-btn">Sport</button>
+            <button data-filter="event" class="filter-btn">Event</button>
+        </div>
+
+        <div id="news-container">
+            <div class="news-item" data-category="tech">
+                <div class="news-image-container">
+                    <img src="img/logo.png" alt="Tech Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Tech Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.', 'img/logo.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+            <div class="news-item" data-category="sport">
+                <div class="news-image-container">
+                    <img src="img/icon1.png" alt="Sport Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, corporis? Praesentium atque temporibus quibusdam magnam facilis maxime, deleniti, rerum, voluptatem commodi aut molestiae? Repellat modi sunt alias aliquid, debitis laborum.', 'img/icon1.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+            <div class="news-item" data-category="event">
+                <div class="news-image-container">
+                    <img src="img/logo.png" alt="Event Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'img/logo.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+            <div class="news-item" data-category="tech">
+                <div class="news-image-container">
+                    <img src="img/logo.png" alt="Tech Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Tech Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque odio, excepturi quaerat nesciunt quos? Ratione eum at provident quae, vitae, minus praesentium, quis modi cumque amet nihil veritatis quos.', 'img/logo.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+            <div class="news-item" data-category="sport">
+                <div class="news-image-container">
+                    <img src="img/logo.png" alt="Sport Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sunt. Suscipit ipsam officia a eum dolore illo nesciunt odit, inventore nam unde, assumenda quis voluptatum adipisci maxime! Nulla, debitis deserunt.', 'img/logo.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+            <div class="news-item" data-category="event">
+                <div class="news-image-container">
+                    <img src="img/logo.png" alt="Event Article">
+                </div>
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consectetur corrupti ea modi, nesciunt magnam? Veniam odio at animi, eveniet, tempora ipsa assumenda dolores voluptates a quasi laborum voluptatem aspernatur!', 'img/logo.png')" class="view-detail-btn">
+                    View Detail
+                </button>
+            </div>
+        </div>
+
+<!-- Modal Box -->
+<div 
+    x-show="modalOpen" 
+    x-cloak 
+    class="modal-overlay"
+    @click.self="closeModal"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 transform scale-90"
+    x-transition:enter-end="opacity-100 transform scale-100"
+    x-transition:leave="transition ease-in duration-300"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-90">
+    <div class="modal-content">
+        <button class="modal-close" @click="closeModal">&times;</button>
+        
+        <div class="modal-left">
+            <img :src="modalMainImage" :alt="modalTitle">
+            <div class="additional-images">
+                <template x-for="(imgSrc, i) in modalAdditionalImages" :key="i">
+                    <img 
+                        :src="imgSrc" 
+                        :alt="`Additional image ${i + 1}`"
+                        @click="modalMainImage = imgSrc"
+                    >
+                </template>
+            </div>
+        </div>
+        
+        <div class="modal-right">
+            <h2 x-text="modalTitle"></h2>
+            <div x-text="modalDescription"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter Section -->
+<div class="newsletter-section">
+    <div class="newsletter-container">
+        <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+        <div class="newsletter-divider"></div>
+        <p class="newsletter-subtitle">Kami di sini siap mengirim informasi seputar kampus sampai acara seru dari PPI~ (✧ω✧)</p>
+        
+        <form id="newsletter-form" class="newsletter-form">
+            <div class="input-group">
+                <input 
+                    type="email" 
+                    id="email-input" 
+                    name="email" 
+                    placeholder="Enter your email address" 
+                    required
+                >
+                <button type="submit" class="submit-btn">
+                    <i data-feather="send"></i>
+                    Subscribe
+                </button>
+            </div>
+            <div class="form-message" id="form-message"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-left">
+            <h3 class="footer-heading">Connect With Us</h3>
+            <div class="footer-divider"></div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/ppitainan"><i data-feather="facebook"></i></a>
+                <a href="https://www.youtube.com/@ppitainanone"><i data-feather="youtube"></i></a>
+                <a href="https://www.instagram.com/ppi_tainan"><i data-feather="instagram"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-center">
+            <img src="img/logo.png" alt="PPI Tainan Logo">
+        </div>
+        
+        <div class="footer-right">
+            <h3 class="footer-heading">Contact</h3>
+            <div class="footer-divider"></div>
+            <ul class="contact-info">
+                <li>
+                    <i data-feather="mail"></i>
+                    <span>test.example@email.com</span>
+                </li>
+                <li>
+                    <i data-feather="map-pin"></i>
+                    <span>National Cheng Kung University, University Road 1, Tainan 70101, Taiwan</span>
+                </li>
+            </ul>
+        </div>
+    </div>
     
+    <div class="footer-bottom">
+        <p>Created by <span>PPI Tainan</span>. &copy; 2025.</p>
+    </div>
+</footer>
+
+    <!-- Feather icons -->
+    <script>feather.replace();</script>
+
+    <script src="jss/news.js"></script>
     <script src="jss/route.js"></script>
+    <script src="jss/alpine.js"></script>
 </body>
 </html>
