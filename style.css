@@ -195,7 +195,7 @@ body{
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 9rem;
+    font-size: 4rem;
     color: #fff;
     text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
@@ -493,13 +493,22 @@ footer {
         font-size: 6.5rem;
         margin-top: 18rem;
     }
-    .banner h2 {
-        font-size: 3rem;
-        margin-top: 4rem;
-    }
 }
 
 @media screen and (max-width: 900px) {
+    .banner {
+        height: 70vh;
+    }
+
+    .banner h1{
+        font-size: 3rem;
+        margin-top: 13rem;
+    }
+
+    .intro {
+        margin-top: 30rem;
+    }
+
     .library {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -530,13 +539,10 @@ footer {
 
 @media screen and (max-width: 768px){
     .banner h1{
-        font-size: 5rem;
-        margin-top: 25rem;
+        font-size: 3rem;
+        margin-top: 18rem;
     }
-    .banner h2 {
-        font-size: 2rem;
-        margin-top: 13rem;
-    }
+
     .library{
         grid-template-columns: 1fr;
     }
@@ -557,28 +563,38 @@ footer {
 }
 
 @media screen and (max-width: 700px) {
+    .banner {
+        height: 70vh;
+    }
+
     .banner h1{
-        font-size: 4.5rem;
-        margin-top: 15rem;
+        font-size: 4rem;
+        margin-top: 8rem;
     }
-    .banner h2 {
-        font-size: 2rem;
-        margin-top: 12rem;
+
+    .intro {
+        margin-top: 20rem;
     }
+
     .intro p {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 500px) {
+    .banner{
+        height: 60vh;
+    }
+    
     .banner h1{
-        font-size: 3.5rem;
-        margin-top: 15rem;
+        font-size: 1.7rem;
+        margin-top: 8rem;
     }
-    .banner h2 {
-        font-size: 1.5rem;
-        margin-top: 6rem;
+
+    .intro {
+        margin-top: 25rem;
     }
+
     .navbar .navbar-nav a {
         font-size: 1.2rem;
         padding: 0.4rem 1rem;
