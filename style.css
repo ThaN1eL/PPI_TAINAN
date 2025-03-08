@@ -489,13 +489,56 @@ footer {
 }
 
 @media screen and (max-width: 1366px) {
+    .banner {
+        height: 75vh;
+    }
+
     .banner h1{
-        font-size: 6.5rem;
+        font-size: 3.8rem;
         margin-top: 18rem;
+    }
+
+    .intro {
+        margin-top: 35rem;
     }
 }
 
-@media screen and (max-width: 900px) {
+
+@media screen and (max-width: 1281px) {
+    .banner {
+        height: 80vh;
+    }
+
+    .banner h1{
+        font-size: 2.8rem;
+        margin-top: 20rem;
+    }
+
+    .intro {
+        margin-top: 25rem;
+    }
+}
+
+@media screen and (width: 1280px) and (height: 800px) {
+    .banner h1{
+        margin-top: 10rem;
+    }
+}
+
+
+@media only screen and (width: 1024px) and (height: 600px) {
+    .banner h1{
+        font-size: 2rem;
+        margin-top: 8rem;
+    }
+
+    .intro {
+        margin-top: 25rem;
+    }
+}
+
+
+@media screen and (max-width: 913px) {
     .banner {
         height: 70vh;
     }
@@ -540,7 +583,7 @@ footer {
 @media screen and (max-width: 768px){
     .banner h1{
         font-size: 3rem;
-        margin-top: 18rem;
+        margin-top: 12rem;
     }
 
     .library{
@@ -581,7 +624,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 541px) {
     .banner{
         height: 60vh;
     }
@@ -607,4 +650,18 @@ footer {
     .contact-info p {
         font-size: 0.9rem;
     }
-}
+
+    @media screen and (max-width: 345px) {
+        .banner{
+            height: 50vh;
+        }
+        
+        .banner h1{
+            font-size: 1.7rem;
+            margin-top: 8rem;
+        }
+    
+        .intro {
+            margin-top: 35rem;
+        }
+}}
