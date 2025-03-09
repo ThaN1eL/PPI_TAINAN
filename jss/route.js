@@ -31,14 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
         });
     }
-
-    // Intro button
-    const introBtn = document.querySelector('.intro .btn');
-    if (introBtn) {
-        introBtn.addEventListener('click', function() {
-            window.location.href = 'about.html';
-        });
-    }
     
     // Make sure scroll to top works
     const homeLinks = document.querySelectorAll('a[href="#home"]');
