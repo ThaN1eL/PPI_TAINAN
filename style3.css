@@ -842,3 +842,85 @@ footer {
         font-size: 1rem;
     }
 }
+
+@supports (-webkit-touch-callout: none) {
+    body {
+      /* Enhanced gradient for iOS devices */
+      background: linear-gradient(135deg, #5b7cf7, #9666d6);
+      /* Force hardware acceleration to improve rendering */
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+    
+    /* Enhanced bubbles for iOS */
+    .bubble {
+      background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      /* Improved shadow rendering */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+    }
+    
+    /* Fix white cutoff at bottom of page */
+    html, body {
+      height: 100%;
+      min-height: -webkit-fill-available;
+    }
+    
+    /* Fix cards on iOS */
+    .news-item, .newsletter-container, .modal-content, .navbar, .header-container, footer {
+      /* Higher contrast backgrounds */
+      background-color: rgba(255, 255, 255, 0.15);
+      /* More pronounced shadow */
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.35);
+    }
+    
+    /* Fix for glowing/uneven rendering on cards */
+    .news-image-container::before {
+      opacity: 0.7;
+    }
+    
+    /* Improve button visibility */
+    .view-detail-btn, .submit-btn, .filter-btn.active {
+      background: linear-gradient(135deg, #ff3e55, #ff7676);
+      box-shadow: 0 4px 15px rgba(255, 62, 85, 0.4);
+    }
+  }
+
+  @supports not (-webkit-touch-callout: none) {
+    /* Prevent white space at bottom */
+    html, body {
+      overscroll-behavior: none;
+    }
+    
+    body {
+      padding-bottom: 3rem;
+    }
+    
+    footer {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Use hardware acceleration for transitions to prevent visual glitches */
+  .transition,
+  .news-item,
+  .view-detail-btn,
+  .filter-btn,
+  .modal-overlay,
+  .modal-content {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  
+  /* Fix for scrolling issues */
+  .modal-overlay {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .modal-right {
+    -webkit-overflow-scrolling: touch;
+  }
