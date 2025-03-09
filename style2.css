@@ -688,11 +688,6 @@ footer {
     justify-content: center;
 }
 
-.footer-right {
-    align-items: flex-start;
-    padding-right: 2rem;
-}
-
 .footer-center img {
     max-width: 100px;
     display: block;
@@ -777,6 +772,32 @@ footer {
 .footer-bottom span {
     font-weight: 600;
 }
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin-bottom: 0.8rem;
+}
+
+.contact-info p svg {
+    margin-right: 0.6rem;
+    min-width: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.footer-right {
+    align-items: center;
+    text-align: center;
+}
+
+.footer-right .contact-info {
+    max-width: 240px;
+    margin: 0 auto;
+}
+
 
 /* Media Queries */
 @media (min-width: 1024px) and (min-height: 1366px){
