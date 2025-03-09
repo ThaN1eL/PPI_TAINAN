@@ -867,30 +867,6 @@ footer {
       height: 100%;
       min-height: -webkit-fill-available;
     }
-
-    .modal-overlay {
-        /* Force center positioning */
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        /* Fix for position issues on iPhone */
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        height: 100% !important; 
-        width: 100% !important;
-        /* Prevent any overflow issues */
-        overflow: hidden;
-        padding: 15px;
-      }
-      
-      /* Use transform for better positioning on newer iPhones */
-      .modal-content {
-        transform: translateY(0) !important;
-        max-height: 90vh;
-      }
     
     /* Fix cards on iOS */
     .news-item, .newsletter-container, .modal-content, .navbar, .header-container, footer {
@@ -912,39 +888,4 @@ footer {
     }
   }
 
-  @supports not (-webkit-touch-callout: none) {
-    /* Prevent white space at bottom */
-    html, body {
-      overscroll-behavior: none;
-    }
-    
-    body {
-      padding-bottom: 3rem;
-    }
-    
-    footer {
-      margin-bottom: 1rem;
-    }
-  }
   
-  /* Use hardware acceleration for transitions to prevent visual glitches */
-  .transition,
-  .news-item,
-  .view-detail-btn,
-  .filter-btn,
-  .modal-overlay,
-  .modal-content {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  
-  /* Fix for scrolling issues */
-  .modal-overlay {
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .modal-right {
-    -webkit-overflow-scrolling: touch;
-  }
