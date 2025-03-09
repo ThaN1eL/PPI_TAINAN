@@ -357,10 +357,10 @@ body{
 }
 
 .connect-panel img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+    border-radius: 0;
     border: 3px solid var(--ruby);
     padding: 3px;
     margin-bottom: 2rem;
@@ -479,6 +479,10 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 2rem;
     width: 100%;
+}
+
+.footer-bottom span {
+    color:#ff3e55 ;
 }
 
 /*Media Queries*/
