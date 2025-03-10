@@ -853,10 +853,22 @@ footer {
       transform: translateZ(0);
     }
 
-    .modal-container, .modal-box, [class*="modal"] {
-        z-index: 1000;
-        transform: none; 
-        -webkit-transform: none;
-        position: relative;
-    }
+    .news-item, .newsletter-container, .modal-content, .navbar, .header-container, footer {
+        /* Higher contrast backgrounds */
+        background-color: rgba(255, 255, 255, 0.15);
+        /* More pronounced shadow */
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.35);
+      }
+      
+      /* Fix for glowing/uneven rendering on cards */
+      .news-image-container::before {
+        opacity: 0.7;
+      }
+      
+      /* Improve button visibility */
+      .view-detail-btn, .submit-btn, .filter-btn.active {
+        background: linear-gradient(135deg, #ff3e55, #ff7676);
+        box-shadow: 0 4px 15px rgba(255, 62, 85, 0.4);
+      }
 }
+
