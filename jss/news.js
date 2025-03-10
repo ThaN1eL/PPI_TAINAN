@@ -103,3 +103,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    
+    if (isIOS) {
+        document.body.classList.add('ios-device');
+        
+        const fixIOSModal = function() {
+            const modals = document.querySelectorAll('.modal-content');
+            modals.forEach(modal => {
+                modal.style.top = '50%';
+                modal.style.left = '50%';
+                modal.style.transform = 'translate(-50%, -50%)';
+            });
+        };
+        
+        document.querySelectorAll('.view-detail-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                setTimeout(fixIOSModal, 10);
+            });
+        });
+    }
+});
