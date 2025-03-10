@@ -828,3 +828,14 @@ footer {
         font-size: 1rem;
     }
 }
+
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-color: #7e80e7;
+        background: -webkit-linear-gradient(315deg, #6e8efb, #a777e3);
+        background: -moz-linear-gradient(315deg, #6e8efb, #a777e3);
+        background: -o-linear-gradient(315deg, #6e8efb, #a777e3);
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        background-attachment: scroll;
+    }
+}
