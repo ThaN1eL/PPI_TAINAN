@@ -841,7 +841,7 @@ footer {
       transform: translateZ(0);
     }
     
-    /* Fix modal positioning specifically for iOS */
+    /* Fixed modal positioning for iOS - positioned at top of screen */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -850,37 +850,35 @@ footer {
       bottom: 0;
       /* Higher z-index to ensure it appears on top */
       z-index: 1000;
-      /* Additional properties to fix iOS modal positioning */
+      /* Force hardware acceleration for iOS */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      /* Prevent scroll issues */
+      overflow: hidden;
+      /* Ensure full coverage */
       height: 100%;
       width: 100%;
-      /* Center content */
+      /* Align content to top with padding */
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
+      padding-top: 60px; /* Adjust this value to control how far from top */
+      /* Improved touch handling */
+      touch-action: none;
     }
     
-    /* Rest of your iOS-specific styles */
-    .bubble {
-      background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+    /* Improve modal content positioning */
+    .modal-content {
+      position: relative;
+      max-height: 80vh; /* Reduced to ensure it stays within viewport */
+      width: 90%;
+      max-width: 900px;
+      margin: 0; /* Remove auto margin which would center it vertically */
+      /* Prevent content overflow */
+      overflow: hidden;
+      /* Force hardware acceleration */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
-    
-    html, body {
-      height: 100%;
-      min-height: -webkit-fill-available;
-    }
-    
-    .news-item, .newsletter-container, .modal-content, .navbar, .header-container, footer {
-      background-color: rgba(255, 255, 255, 0.15);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.35);
-    }
-    
-    .news-image-container::before {
-      opacity: 0.7;
-    }
-    
-    .view-detail-btn, .submit-btn, .filter-btn.active {
-      background: linear-gradient(135deg, #ff3e55, #ff7676);
-      box-shadow: 0 4px 15px rgba(255, 62, 85, 0.4);
-    }
-  }
+}
