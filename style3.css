@@ -842,3 +842,16 @@ footer {
         font-size: 1rem;
     }
 }
+
+@supports (-webkit-touch-callout: none) {
+    body {
+      /* Enhanced gradient for iOS devices */
+      background: linear-gradient(135deg, #5b7cf7, #9666d6);
+      /* Force hardware acceleration to improve rendering */
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      -o-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+}
