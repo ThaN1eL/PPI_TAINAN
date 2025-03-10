@@ -846,11 +846,6 @@ footer {
 @supports (-webkit-touch-callout: none) {
     body {
       background: linear-gradient(135deg, #5b7cf7, #9666d6);
-      -webkit-transform: translateZ(0);
-      -moz-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      -o-transform: translateZ(0);
-      transform: translateZ(0);
     }
 }
 
