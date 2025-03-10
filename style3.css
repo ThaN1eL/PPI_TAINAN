@@ -858,14 +858,6 @@ footer {
       /* Ensure full coverage */
       height: 100%;
       width: 100%;
-      /* Align content to top with padding */
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 60px; /* Adjust this value to control how far from top */
-      /* Improved touch handling */
-      touch-action: none;
     }
     
     /* Improve modal content positioning */
