@@ -848,22 +848,17 @@ footer {
       left: 0;
       right: 0;
       bottom: 0;
-      /* Higher z-index to ensure it appears on top */
-      z-index: 1000;
       /* Force hardware acceleration for iOS */
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
       /* Prevent scroll issues */
       overflow: hidden;
-      /* Ensure full coverage */
-      height: 100%;
-      width: 100%;
     }
     
     /* Improve modal content positioning */
     .modal-content {
       position: relative;
-      max-height: 80vh; /* Reduced to ensure it stays within viewport */
+      max-height: 50vh; /* Reduced to ensure it stays within viewport */
       width: 90%;
       max-width: 900px;
       margin: 0; /* Remove auto margin which would center it vertically */
