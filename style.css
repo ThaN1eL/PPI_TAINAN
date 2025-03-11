@@ -200,17 +200,6 @@ body{
     text-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-.banner h2{
-    position: absolute;
-    top: 10%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 4rem;
-    color: #fff;
-    margin-top: 5rem;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.5);
-}
 
 /* Intro Section with Glassmorphism */
 .intro{

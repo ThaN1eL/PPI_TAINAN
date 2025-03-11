@@ -123,6 +123,91 @@ body {
     z-index: 1000;
 }
 
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn, .close-btn {
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover, .close-btn:hover {
+    transform: scale(1.1);
+}
+
+.close-btn {
+    display: none;
+}
+
+/* Sidebar styles (for both desktop and mobile) */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding-top: 80px;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar-content a {
+    padding: 1rem;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.sidebar-content a:hover {
+    background: rgba(0, 102, 204, 0.1);
+    color: #0066cc;
+    padding-left: 1.5rem;
+}
+
+/* Overlay for menu background */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .navbar-logo {
     font-size: 1.8rem;
     font-weight: 700;
@@ -156,7 +241,7 @@ body {
     height: 4px;
     background: linear-gradient(90deg, #0066cc, transparent);
     bottom: -10px;
-    left: 15%;
+    left: 0;
 }
 
 .hero-container {
@@ -1027,6 +1112,9 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
     
     .navbar-logo {
         font-size: 1.5rem;
@@ -1034,6 +1122,11 @@ footer {
     
     .hero h1 {
         font-size: 1.5rem;
+    }
+
+    .sidebar {
+        width: 50%;
+        right: -70%;
     }
     
     .logo-container {

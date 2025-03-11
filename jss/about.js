@@ -112,8 +112,7 @@ document.querySelectorAll('.navbar-nav a').forEach(anchor => {
 });
 
 
-
-
+// Hamburger Menu
 document.addEventListener('DOMContentLoaded', function() {
     // Get all department accordion headers
     const departmentHeaders = document.querySelectorAll('.department-header');
@@ -160,5 +159,47 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Check on scroll
         window.addEventListener('scroll', handleVisibleElements);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const menuOverlay = document.querySelector('.menu-overlay');
+    
+    // Function to open the sidebar
+    function openSidebar() {
+        sidebar.classList.add('active');
+        menuOverlay.classList.add('active');
+        menuBtn.style.display = 'none';
+        closeBtn.style.display = 'flex';
+    }
+    
+    // Function to close the sidebar
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        closeBtn.style.display = 'none';
+        menuBtn.style.display = 'flex';
+    }
+    
+    // Event listeners for menu buttons
+    menuBtn.addEventListener('click', openSidebar);
+    closeBtn.addEventListener('click', closeSidebar);
+    
+    // Close menu when clicking outside
+    menuOverlay.addEventListener('click', closeSidebar);
+    
+    // Close menu when clicking a menu item
+    const menuLinks = document.querySelectorAll('.sidebar-content a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+    
+    // Initialize Feather icons (if not already initialized elsewhere)
+    if (typeof feather !== 'undefined') {
+        feather.replace();
     }
 });
