@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         feather.replace();
         
         // Form submission using Google Apps Script
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxLYdPvHQj86nzWmmk8bCfyTpUknDtWXS8QVY9z2S-vuflkMDYfBXtWBFvQML-tdtK5/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXI4eF1FX3WQTjGgZYTBVtlWATAebmmgFWPxOFZtA1kzbD8cZn6c9QdBN2bkjdEI9V/exec';
         
         // Prepare form data
         const formData = new FormData();
