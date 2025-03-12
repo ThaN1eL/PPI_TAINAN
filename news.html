@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PPI Tainan News</title>
-    <link rel="icon" type="image/png" href="img/icon1.png">
-    <link rel="stylesheet" href="style3.css">
+    <link rel="icon" type="image/png" href="assets/img/icon1.png">
+    <link rel="stylesheet" href="assets/css/style3.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Feather icon -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -22,7 +22,11 @@
     </div>
 
     <nav class="navbar">
-        <a href="#" class="navbar-logo" id="landing">PPI <span>Tainan</span></a>
+        <div class="navbar-container">
+        <a href="#" class="navbar-logo" id="landing">
+            <img src="assets/img/PPInew.png" alt="PPI Tainan Logo" class="navbar-logo-img">
+            PPI <span>Tainan</span></a>
+        </div>
     </nav>
 
     <!-- Header section -->
@@ -45,55 +49,55 @@
         <div id="news-container">
             <div class="news-item" data-category="annc">
                 <div class="news-image-container">
-                    <img src="img/logo.png" alt="Announcement">
+                    <img src="assets/img/logo.png" alt="Announcement">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.', 'img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
             <div class="news-item" data-category="sport">
                 <div class="news-image-container">
-                    <img src="img/icon1.png" alt="Sport Article">
+                    <img src="assets/img/icon1.png" alt="Sport Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, corporis? Praesentium atque temporibus quibusdam magnam facilis maxime, deleniti, rerum, voluptatem commodi aut molestiae? Repellat modi sunt alias aliquid, debitis laborum.', 'img/icon1.png')" class="view-detail-btn">
+                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, corporis? Praesentium atque temporibus quibusdam magnam facilis maxime, deleniti, rerum, voluptatem commodi aut molestiae? Repellat modi sunt alias aliquid, debitis laborum.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
             <div class="news-item" data-category="event">
                 <div class="news-image-container">
-                    <img src="img/logo.png" alt="Event Article">
+                    <img src="assets/img/logo.png" alt="Event Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
             <div class="news-item" data-category="annc">
                 <div class="news-image-container">
-                    <img src="img/logo.png" alt="Announcement">
+                    <img src="assets/img/logo.png" alt="Announcement">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque odio, excepturi quaerat nesciunt quos? Ratione eum at provident quae, vitae, minus praesentium, quis modi cumque amet nihil veritatis quos.', 'img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque odio, excepturi quaerat nesciunt quos? Ratione eum at provident quae, vitae, minus praesentium, quis modi cumque amet nihil veritatis quos.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
             <div class="news-item" data-category="sport">
                 <div class="news-image-container">
-                    <img src="img/logo.png" alt="Sport Article">
+                    <img src="assets/img/logo.png" alt="Sport Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sunt. Suscipit ipsam officia a eum dolore illo nesciunt odit, inventore nam unde, assumenda quis voluptatum adipisci maxime! Nulla, debitis deserunt.', 'img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sunt. Suscipit ipsam officia a eum dolore illo nesciunt odit, inventore nam unde, assumenda quis voluptatum adipisci maxime! Nulla, debitis deserunt.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
             <div class="news-item" data-category="event">
                 <div class="news-image-container">
-                    <img src="img/logo.png" alt="Event Article">
+                    <img src="assets/img/logo.png" alt="Event Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consectetur corrupti ea modi, nesciunt magnam? Veniam odio at animi, eveniet, tempora ipsa assumenda dolores voluptates a quasi laborum voluptatem aspernatur!', 'img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consectetur corrupti ea modi, nesciunt magnam? Veniam odio at animi, eveniet, tempora ipsa assumenda dolores voluptates a quasi laborum voluptatem aspernatur!', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
@@ -180,7 +184,7 @@
         </div>
         
         <div class="footer-center">
-            <img src="img/logo.png" alt="PPI Tainan Logo">
+            <img src="assets/img/PPInew.png" alt="PPI Tainan Logo">
         </div>
         
         <div class="footer-right">
@@ -207,8 +211,8 @@
     <!-- Feather icons -->
     <script>feather.replace();</script>
 
-    <script src="jss/news.js"></script>
-    <script src="jss/route.js"></script>
-    <script src="jss/alpine.js"></script>
+    <script src="assets/jss/news.js"></script>
+    <script src="assets/jss/route.js"></script>
+    <script src="assets/jss/alpine.js"></script>
 </body>
 </html>

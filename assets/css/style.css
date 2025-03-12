@@ -163,31 +163,31 @@ body{
     transition: 0.1s;
 }
 .banner .bg-1{
-    background-image: url('img/0.png');
+    background-image: url('../img/0.png');
 }
 .banner .bg-2{
-    background-image: url('img/1.png');
+    background-image: url('../img/1.png');
 }
 .banner .bg-3{
-    background-image: url('img/2.png');
+    background-image: url('../img/2.png');
 }
 .banner .bg-4{
-    background-image: url('img/3.png');
+    background-image: url('../img/3.png');
 }
 .banner .bg-5{
-    background-image: url('img/4.png');
+    background-image: url('../img/4.png');
 }
 .banner .bg-6{
-    background-image: url('img/5.png');
+    background-image: url('../img/5.png');
 }
 .banner .bg-7{
-    background-image: url('img/6.png');
+    background-image: url('../img/6.png');
 }
 .banner .bg-8{
-    background-image: url('img/7.png');
+    background-image: url('../img/7.png');
 }
 .banner .bg-9{
-    background-image: url('img/8.png');
+    background-image: url('../img/8.png');
 }
 .banner h1{
     position: absolute;
@@ -392,6 +392,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-center img {
+    transform: scale(1.5);
 }
 
 .footer-logo {

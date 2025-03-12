@@ -121,11 +121,22 @@ body {
     z-index: 1000;
 }
 
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-logo-img {
+    height: 30px;
+    width: auto;
+    margin-right: 1px;
+}
+
 .navbar-logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: #333;
-    text-decoration: none;
 }
 
 .navbar-logo span {

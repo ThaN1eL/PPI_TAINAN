@@ -123,6 +123,24 @@ body {
     z-index: 1000;
 }
 
+.navbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-logo-img {
+    height: 30px;
+    width: auto;
+    margin-right: 1px;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+}
+
 /* Hamburger menu styles */
 .hamburger-menu {
     display: flex;
@@ -757,6 +775,10 @@ footer {
     padding-bottom: 1.5rem;
 }
 
+.footer-center img {
+    transform: scale(1.5);
+}
+
 .footer-left, .footer-center, .footer-right {
     display: flex;
     flex-direction: column;
@@ -1118,6 +1140,10 @@ footer {
     
     .navbar-logo {
         font-size: 1.5rem;
+    }
+
+    .navbar-logo-img {
+        height: 24px;
     }
     
     .hero h1 {
