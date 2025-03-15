@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Init Feather icons
     if (typeof feather !== 'undefined') {
         feather.replace();
+    } else { 
+        console.error('Feather icons are not available'); 
     }
     
     const menuBtn = document.getElementById('menu-btn');
