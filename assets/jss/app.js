@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof feather !== 'undefined') {
         feather.replace();
     } else { 
-        console.error('Feather icons are not available'); 
+        console.error('Feather icons failed to load'); 
     }
     
     const menuBtn = document.getElementById('menu-btn');

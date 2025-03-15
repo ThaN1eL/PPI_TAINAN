@@ -1,5 +1,13 @@
 //DataFilter
 document.addEventListener('DOMContentLoaded', () => {
+
+    // Initialize Feather icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    } else {
+        console.error('Feather icons failed to load');
+    }
+    
     const filterButtons = document.querySelectorAll('.filter-btn');
     const newsItems = document.querySelectorAll('.news-item');
 
