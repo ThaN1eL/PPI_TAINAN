@@ -1,46 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Redirect to index.html
-    document.querySelectorAll('#landing,#landing2').forEach(function(element) {
+    setupNavigation();
+    
+    handleCurrentRoute();
+});
+
+function setupNavigation() {
+    document.querySelectorAll('#landing, #landing2, a[href="#home"], a[href="index.html"], a[href="/"]').forEach(function(element) {
         element.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            window.location.href = 'index.html';
+            e.preventDefault();
+            navigateTo('/');
         });
     });
 
-    // About Us links
-    document.querySelectorAll('#about, #about-btn, #about-footer').forEach(function(element) {
+    document.querySelectorAll('#about, #about-btn, #about-footer, a[href="about.html"], a[href="/about"]').forEach(function(element) {
         element.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            window.location.href = 'about.html'; 
+            e.preventDefault();
+            navigateTo('/about');
         });
     });
 
-    // News links
-    document.querySelectorAll('#news, #news-btn, #news-footer').forEach(function(element) {
+    document.querySelectorAll('#news, #news-btn, #news-footer, a[href="news.html"], a[href="/news"]').forEach(function(element) {
         element.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            window.location.href = 'news.html'; 
+            e.preventDefault();
+            navigateTo('/news');
         });
     });
 
-    // DANUS Store link
     const danusBtn = document.getElementById('danus-btn');
     if (danusBtn) {
         danusBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
         });
     }
+}
+
+function handleCurrentRoute() {
+    const path = window.location.pathname;
     
-    // Make sure scroll to top works
-    const homeLinks = document.querySelectorAll('a[href="#home"]');
-    homeLinks.forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+    if (path.endsWith('.html')) {
+        let cleanPath;
+        if (path.endsWith('index.html')) {
+            cleanPath = '/';
+        } else if (path.endsWith('about.html')) {
+            cleanPath = '/about';
+        } else if (path.endsWith('news.html')) {
+            cleanPath = '/news';
+        }
+        
+        if (cleanPath) {
+            history.replaceState(null, '', cleanPath);
+        }
+    }
+}
+
+function navigateTo(path) {
+    let targetPage;
+    switch(path) {
+        case '/':
+            targetPage = 'index.html';
+            break;
+        case '/about':
+            targetPage = 'about.html';
+            break;
+        case '/news':
+            targetPage = 'news.html';
+            break;
+        default:
+            targetPage = '404.html';
+    }
+    
+    history.pushState(null, '', path);
+    
+    window.location.href = targetPage;
+}
