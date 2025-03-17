@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSidebarLinks();
   });
   
+  /**
+   */
   function setupRoutes() {
     if (window.location.pathname.endsWith('.html')) {
       const cleanPath = window.location.pathname.replace(/\.html$/, '');
@@ -20,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
+  /**
+   */
   function setupSidebarLinks() {
     const landingLinks = document.querySelectorAll('#landing, #landing2');
     landingLinks.forEach(link => {
@@ -112,47 +116,42 @@ document.addEventListener('DOMContentLoaded', function() {
    * @param {string} route 
    */
   function navigateTo(route) {
+    let baseUrl = window.location.origin;
     let targetUrl;
+    
     switch (route) {
       case '/':
-        targetUrl = '/index.html';
+        targetUrl = baseUrl + '/index.html';
         break;
       case '/about':
-        targetUrl = '/about.html';
+        targetUrl = baseUrl + '/about.html';
         break;
       case '/news':
-        targetUrl = '/news.html';
+        targetUrl = baseUrl + '/news.html';
         break;
       case '/404':
-        targetUrl = '/404.html';
+        targetUrl = baseUrl + '/404.html';
         break;
       default:
-        targetUrl = route + '.html';
+        targetUrl = baseUrl + route + '.html';
     }
     
-    const cleanRoute = route === '/' ? '/' : route;
-    window.history.pushState({}, '', cleanRoute);
-    
-    if (getPageName(window.location.pathname) !== getPageName(targetUrl)) {
-      window.location.href = targetUrl;
-    }
+    window.location.href = targetUrl;
   }
   
   /**
-   * @param {string} route
-   * @returns {boolean}
+   * @param {string} route 
+   * @returns {boolean} 
    */
-
   function isValidRoute(route) {
     const validRoutes = ['/', '/index', '/about', '/news', '/404'];
     return validRoutes.includes(route) || validRoutes.includes(route + '/');
   }
   
   /**
-   * @param {string} path
+   * @param {string} path 
    * @returns {string} 
    */
-
   function getPageName(path) {
     let pageName = path.split('/').pop();
     
