@@ -1,169 +1,76 @@
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof feather !== 'undefined') {
-      feather.replace();
+    // Main page mapping for static site
+    const pageMapping = {
+        '/': 'index.html',
+        '/index': 'index.html',
+        '/about': 'about.html',
+        '/news': 'news.html'
+    };
+    
+    // Handle navigation without .html extension
+    function handleNavigation() {
+        const path = window.location.pathname;
+        
+        // If we're already showing a .html page, don't do anything
+        if (path.endsWith('.html')) return;
+        
+        // If the path has a mapping, redirect to the correct HTML file
+        if (pageMapping[path]) {
+            window.location.replace(pageMapping[path]);
+            return;
+        }
+        
+        // For unknown paths, redirect to 404.html
+        if (path !== '/404') {
+            window.location.replace('404.html');
+        }
     }
     
-    setupRoutes();
-    setupSidebarLinks();
-  });
-  
-  /**
-   */
-  function setupRoutes() {
-    if (window.location.pathname.endsWith('.html')) {
-      const cleanPath = window.location.pathname.replace(/\.html$/, '');
-      window.history.replaceState({}, document.title, cleanPath);
-    }
+    // Run URL check on page load
+    handleNavigation();
     
-    if (!isValidRoute(window.location.pathname) && !window.location.pathname.endsWith('.html')) {
-      if (!window.location.pathname.endsWith('/404')) {
-        navigateTo('/404');
-      }
-    }
-  }
-  
-  /**
-   */
-  function setupSidebarLinks() {
-    const landingLinks = document.querySelectorAll('#landing, #landing2');
-    landingLinks.forEach(link => {
-      if (link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          navigateTo('/');
+    // Redirect to index.html
+    document.querySelectorAll('#landing, #landing2').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            window.location.href = 'index.html';
         });
-      }
     });
-    
-    const aboutLinks = document.querySelectorAll('#about, #about-btn');
-    aboutLinks.forEach(link => {
-      if (link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          navigateTo('/about');
+
+    // About Us links
+    document.querySelectorAll('#about, #about-btn, #about-footer').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            window.location.href = 'about.html'; 
         });
-      }
     });
-    
-    const newsLinks = document.querySelectorAll('#news, #news-btn');
-    newsLinks.forEach(link => {
-      if (link) {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          navigateTo('/news');
+
+    // News links
+    document.querySelectorAll('#news, #news-btn, #news-footer').forEach(function(element) {
+        element.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            window.location.href = 'news.html'; 
         });
-      }
     });
-    
+
+    // DANUS Store link
     const danusBtn = document.getElementById('danus-btn');
     if (danusBtn) {
-      danusBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
-      });
-    }
-    
-    const menuBtn = document.getElementById('menu-btn');
-    const closeBtn = document.getElementById('close-btn');
-    const sidebar = document.querySelector('.sidebar, .desktop-sidebar');
-    const overlay = document.getElementById('overlay');
-    
-    if (menuBtn && closeBtn && sidebar) {
-      menuBtn.addEventListener('click', function() {
-        sidebar.classList.add('active');
-        if (overlay) overlay.classList.add('active');
-        menuBtn.style.display = 'none';
-        closeBtn.style.display = 'block';
-      });
-      
-      closeBtn.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
-        menuBtn.style.display = 'block';
-        closeBtn.style.display = 'none';
-      });
-      
-      if (overlay) {
-        overlay.addEventListener('click', function() {
-          sidebar.classList.remove('active');
-          overlay.classList.remove('active');
-          menuBtn.style.display = 'block';
-          closeBtn.style.display = 'none';
+        danusBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
         });
-      }
     }
     
+    // Make sure scroll to top works
     const homeLinks = document.querySelectorAll('a[href="#home"]');
-    homeLinks.forEach(link => {
-      if (link) {
+    homeLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
-          e.preventDefault();
-          navigateTo('/');
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-      }
     });
-    
-    const homeBtn = document.querySelector('.home-btn');
-    if (homeBtn) {
-      homeBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        navigateTo('/');
-      });
-    }
-  }
-  
-  /**
-   * @param {string} route 
-   */
-  function navigateTo(route) {
-    let baseUrl = window.location.origin;
-    let targetUrl;
-    
-    switch (route) {
-      case '/':
-        targetUrl = baseUrl + '/index.html';
-        break;
-      case '/about':
-        targetUrl = baseUrl + '/about.html';
-        break;
-      case '/news':
-        targetUrl = baseUrl + '/news.html';
-        break;
-      case '/404':
-        targetUrl = baseUrl + '/404.html';
-        break;
-      default:
-        targetUrl = baseUrl + route + '.html';
-    }
-    
-    window.location.href = targetUrl;
-  }
-  
-  /**
-   * @param {string} route 
-   * @returns {boolean} 
-   */
-  function isValidRoute(route) {
-    const validRoutes = ['/', '/index', '/about', '/news', '/404'];
-    return validRoutes.includes(route) || validRoutes.includes(route + '/');
-  }
-  
-  /**
-   * @param {string} path 
-   * @returns {string} 
-   */
-  function getPageName(path) {
-    let pageName = path.split('/').pop();
-    
-    if (pageName === '' || pageName === '/') {
-      return 'index';
-    }
-    
-    return pageName.replace('.html', '');
-  }
-  
-  window.addEventListener('popstate', function() {
-    if (!isValidRoute(window.location.pathname)) {
-      navigateTo('/404');
-    }
-  });
+});
