@@ -52,7 +52,7 @@
                     <img src="assets/img/logo.png" alt="Announcement">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribusincidunt.', 'assets/img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Announcement', 'Lorem<br><br><br><br>😎 <br><br> ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribus incidunt.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, quisquam. Nemo, blanditiis corporis molestiae veritatis quos fugiat unde reiciendis voluptatem sequi ipsa, expedita illum dolorem, nihil quasi tempore doloribusincidunt.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
@@ -70,7 +70,7 @@
                     <img src="assets/img/logo.png" alt="Event Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'assets/img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Event Article', 'Lorem ipsumdolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
@@ -79,7 +79,7 @@
                     <img src="assets/img/logo.png" alt="Announcement">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni itaque odio, excepturi quaerat nesciunt quos? Ratione eum at provident quae, vitae, minus praesentium, quis modi cumque amet nihil veritatis quos.', 'assets/img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Announcement', 'Lorem ipsum dolor sit ametconsectetur adipisicing elit. Magni itaque odio, excepturi quaerat nesciunt quos? Ratione eum at provident quae, vitae, minus praesentium, quis modi cumque amet nihil veritatis quos.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
@@ -133,7 +133,7 @@
         
         <div class="modal-right">
             <h2 x-text="modalTitle"></h2>
-            <div x-text="modalDescription"></div>
+            <div x-html="modalDescription"></div>
         </div>
     </div>
 </div>
