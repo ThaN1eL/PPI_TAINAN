@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Main page mapping for static site
     const pageMapping = {
         '/': 'index.html',
-        '/home': 'index.html',
+        '/index': 'index.html',
         '/about': 'about.html',
         '/news': 'news.html'
     };
