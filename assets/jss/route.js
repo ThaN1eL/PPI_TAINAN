@@ -6,10 +6,13 @@ class Router {
     }
   
     init() {
-      //prevent reload loops
+      // Get the current path from the URL
       this.currentPath = window.location.pathname;
+      
+      // Set default path if at root
       if (this.currentPath === '/' || this.currentPath === '') {
         this.currentPath = '/home';
+        window.history.replaceState({}, '', '/home');
       }
       
       // Handle initial page load
@@ -24,34 +27,36 @@ class Router {
         }
       });
   
-      
+      // Setup link interception
       this.setupLinkInterception();
     }
   
     handleInitialLoad() {
       const path = window.location.pathname;
       
+      // Map clean paths to actual HTML files
+      const htmlFile = this.getHtmlFromCleanPath(path);
       
-      if (path === '/' || path === '') {
-        window.history.replaceState({}, '', '/home');
+      // If we're already on the correct HTML file for this path, do nothing
+      if (this.isCurrentHtmlFile(htmlFile)) {
         return;
       }
       
-      
-      if (path.endsWith('.html')) {
-        
-        const cleanPath = this.getCleanPathFromHtml(path);
-       
-        window.history.replaceState({}, '', cleanPath);
+      // If we're at a path that doesn't match our current HTML file,
+      // we need to redirect to the correct HTML file
+      if (htmlFile) {
+        window.location.href = htmlFile;
       }
-      
-     
+    }
+  
+    // Check if we're currently on the specified HTML file
+    isCurrentHtmlFile(htmlFile) {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      return currentPage === htmlFile;
     }
   
     getCleanPathFromHtml(htmlPath) {
-      
       const filename = htmlPath.split('/').pop();
-      
       
       switch (filename) {
         case 'index.html':
@@ -64,20 +69,38 @@ class Router {
           return '/404';
       }
     }
-
+  
     getHtmlFromCleanPath(cleanPath) {
-      return this.routes[cleanPath] || this.routes['/404'];
+      // Strip any leading and trailing slashes and get just the path
+      const path = cleanPath.replace(/^\/+|\/+$/g, '');
+      
+      // Map path to HTML file
+      switch (path) {
+        case '':
+        case 'home':
+          return 'index.html';
+        case 'about':
+          return 'about.html';
+        case 'news':
+          return 'news.html';
+        default:
+          return '404.html';
+      }
     }
     
     isCurrentPage(path) {
+      // Get the target HTML file for this path
       const targetHtml = this.getHtmlFromCleanPath(path);
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       
-      if (path === '/home' && (currentPage === 'index.html' || currentPage === '')) {
+      // Get the current HTML file
+      const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+      
+      // Special case for home page
+      if (path === '/home' && (currentFile === 'index.html' || currentFile === '')) {
         return true;
       }
       
-      return currentPage === targetHtml;
+      return currentFile === targetHtml;
     }
   
     setupLinkInterception() {
@@ -90,6 +113,7 @@ class Router {
         if (anchor) {
           const href = anchor.getAttribute('href');
           
+          // Don't intercept external links, hash links, or DANUS links
           if (!href || 
               href.startsWith('http') || 
               href.startsWith('#') || 
@@ -119,7 +143,7 @@ class Router {
           (target.closest('a') && target.closest('a').id === 'landing') ||
           (target.closest('a') && target.closest('a').id === 'landing2')) {
         e.preventDefault();
-        this.navigateTo('/');
+        this.navigateTo('/home');
         return true;
       }
       
@@ -140,7 +164,7 @@ class Router {
         this.navigateTo('/news');
         return true;
       }
-
+  
       // DANUS
       if (targetId === 'danus-btn' || 
           (target.closest('button') && target.closest('button').id === 'danus-btn')) {
@@ -158,7 +182,6 @@ class Router {
       }
       
       const htmlFile = this.getHtmlFromCleanPath(path);
-      
       window.location.href = htmlFile;
     }
   
@@ -168,21 +191,18 @@ class Router {
       }
       
       this.currentPath = path;
-      
       window.history.pushState({}, '', path);
-      
       this.handleNavigation(path);
     }
   }
   
-  // Define routes mapping
+  // Define routes mapping (not actually used in this implementation)
   const routes = {
     '/home': 'index.html',
     '/about': 'about.html',
     '/news': 'news.html',
     '/404': '404.html'
   };
-  
   
   document.addEventListener('DOMContentLoaded', () => {
     window.siteRouter = new Router(routes);
