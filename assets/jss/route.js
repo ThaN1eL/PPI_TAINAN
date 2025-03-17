@@ -1,209 +1,170 @@
-class Router {
-    constructor(routes) {
-      this.routes = routes;
-      this.currentPath = '';
-      this.init();
-    }
-  
-    init() {
-      // Get the current path from the URL
-      this.currentPath = window.location.pathname;
-      
-      // Set default path if at root
-      if (this.currentPath === '/' || this.currentPath === '') {
-        this.currentPath = '/home';
-        window.history.replaceState({}, '', '/home');
-      }
-      
-      // Handle initial page load
-      this.handleInitialLoad();
-  
-      // Handle browser back/forward buttons
-      window.addEventListener('popstate', (e) => {
-        const path = window.location.pathname;
-        if (path !== this.currentPath) {
-          this.currentPath = path;
-          this.handleNavigation(path);
-        }
-      });
-  
-      // Setup link interception
-      this.setupLinkInterception();
-    }
-  
-    handleInitialLoad() {
-      const path = window.location.pathname;
-      
-      // Map clean paths to actual HTML files
-      const htmlFile = this.getHtmlFromCleanPath(path);
-      
-      // If we're already on the correct HTML file for this path, do nothing
-      if (this.isCurrentHtmlFile(htmlFile)) {
-        return;
-      }
-      
-      // If we're at a path that doesn't match our current HTML file,
-      // we need to redirect to the correct HTML file
-      if (htmlFile) {
-        window.location.href = htmlFile;
-      }
-    }
-  
-    // Check if we're currently on the specified HTML file
-    isCurrentHtmlFile(htmlFile) {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      return currentPage === htmlFile;
-    }
-  
-    getCleanPathFromHtml(htmlPath) {
-      const filename = htmlPath.split('/').pop();
-      
-      switch (filename) {
-        case 'index.html':
-          return '/home';
-        case 'about.html':
-          return '/about';
-        case 'news.html':
-          return '/news';
-        default:
-          return '/404';
-      }
-    }
-  
-    getHtmlFromCleanPath(cleanPath) {
-      // Strip any leading and trailing slashes and get just the path
-      const path = cleanPath.replace(/^\/+|\/+$/g, '');
-      
-      // Map path to HTML file
-      switch (path) {
-        case '':
-        case 'home':
-          return 'index.html';
-        case 'about':
-          return 'about.html';
-        case 'news':
-          return 'news.html';
-        default:
-          return '404.html';
-      }
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof feather !== 'undefined') {
+      feather.replace();
     }
     
-    isCurrentPage(path) {
-      // Get the target HTML file for this path
-      const targetHtml = this.getHtmlFromCleanPath(path);
-      
-      // Get the current HTML file
-      const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-      
-      // Special case for home page
-      if (path === '/home' && (currentFile === 'index.html' || currentFile === '')) {
-        return true;
-      }
-      
-      return currentFile === targetHtml;
+    setupRoutes();
+    setupSidebarLinks();
+  });
+  
+  function setupRoutes() {
+    if (window.location.pathname.endsWith('.html')) {
+      const cleanPath = window.location.pathname.replace(/\.html$/, '');
+      window.history.replaceState({}, document.title, cleanPath);
     }
-  
-    setupLinkInterception() {
-      document.addEventListener('click', (e) => {
-        if (this.handleSpecialLinks(e)) {
-          return; 
-        }
-        
-        const anchor = e.target.closest('a');
-        if (anchor) {
-          const href = anchor.getAttribute('href');
-          
-          // Don't intercept external links, hash links, or DANUS links
-          if (!href || 
-              href.startsWith('http') || 
-              href.startsWith('#') || 
-              href.startsWith('https://') ||
-              href.includes('TAINAN_STORE')) {
-            return;
-          }
-          
-          e.preventDefault();
-          
-          if (href.endsWith('.html')) {
-            const cleanPath = this.getCleanPathFromHtml(href);
-            this.navigateTo(cleanPath);
-          } else {
-            this.navigateTo(href);
-          }
-        }
-      });
-    }
-  
-    handleSpecialLinks(e) {
-      const target = e.target;
-      const targetId = target.id || '';
-      
-      // Home
-      if (targetId === 'landing' || targetId === 'landing2' || 
-          (target.closest('a') && target.closest('a').id === 'landing') ||
-          (target.closest('a') && target.closest('a').id === 'landing2')) {
-        e.preventDefault();
-        this.navigateTo('/home');
-        return true;
+    
+    if (!isValidRoute(window.location.pathname) && !window.location.pathname.endsWith('.html')) {
+      if (!window.location.pathname.endsWith('/404')) {
+        navigateTo('/404');
       }
-      
-      // About
-      if (targetId === 'about' || targetId === 'about-btn' || targetId === 'about-footer' ||
-          (target.closest('button') && target.closest('button').id === 'about-btn') ||
-          (target.closest('a') && target.closest('a').id === 'about')) {
-        e.preventDefault();
-        this.navigateTo('/about');
-        return true;
-      }
-      
-      // News
-      if (targetId === 'news' || targetId === 'news-btn' || targetId === 'news-footer' ||
-          (target.closest('button') && target.closest('button').id === 'news-btn') ||
-          (target.closest('a') && target.closest('a').id === 'news')) {
-        e.preventDefault();
-        this.navigateTo('/news');
-        return true;
-      }
-  
-      // DANUS
-      if (targetId === 'danus-btn' || 
-          (target.closest('button') && target.closest('button').id === 'danus-btn')) {
-        e.preventDefault();
-        window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
-        return true;
-      }
-  
-      return false;
-    }
-  
-    handleNavigation(path) {
-      if (this.isCurrentPage(path)) {
-        return;
-      }
-      
-      const htmlFile = this.getHtmlFromCleanPath(path);
-      window.location.href = htmlFile;
-    }
-  
-    navigateTo(path) {
-      if (path === this.currentPath || this.isCurrentPage(path)) {
-        return;
-      }
-      
-      this.currentPath = path;
-      window.history.pushState({}, '', path);
-      this.handleNavigation(path);
     }
   }
   
-  // Define routes mapping (not actually used in this implementation)
-  const routes = {
-    '/home': 'index.html',
-    '/about': 'about.html',
-    '/news': 'news.html',
-    '/404': '404.html'
-  };
+  function setupSidebarLinks() {
+    const landingLinks = document.querySelectorAll('#landing, #landing2');
+    landingLinks.forEach(link => {
+      if (link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('/');
+        });
+      }
+    });
+    
+    const aboutLinks = document.querySelectorAll('#about, #about-btn');
+    aboutLinks.forEach(link => {
+      if (link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('/about');
+        });
+      }
+    });
+    
+    const newsLinks = document.querySelectorAll('#news, #news-btn');
+    newsLinks.forEach(link => {
+      if (link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('/news');
+        });
+      }
+    });
+    
+    const danusBtn = document.getElementById('danus-btn');
+    if (danusBtn) {
+      danusBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = 'https://than1el.github.io/PPI_TAINAN_STORE';
+      });
+    }
+    
+    const menuBtn = document.getElementById('menu-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.querySelector('.sidebar, .desktop-sidebar');
+    const overlay = document.getElementById('overlay');
+    
+    if (menuBtn && closeBtn && sidebar) {
+      menuBtn.addEventListener('click', function() {
+        sidebar.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        menuBtn.style.display = 'none';
+        closeBtn.style.display = 'block';
+      });
+      
+      closeBtn.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        menuBtn.style.display = 'block';
+        closeBtn.style.display = 'none';
+      });
+      
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          sidebar.classList.remove('active');
+          overlay.classList.remove('active');
+          menuBtn.style.display = 'block';
+          closeBtn.style.display = 'none';
+        });
+      }
+    }
+    
+    const homeLinks = document.querySelectorAll('a[href="#home"]');
+    homeLinks.forEach(link => {
+      if (link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          navigateTo('/');
+        });
+      }
+    });
+    
+    const homeBtn = document.querySelector('.home-btn');
+    if (homeBtn) {
+      homeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigateTo('/');
+      });
+    }
+  }
   
-  document.addEventListener('DOMContentLoaded', () => {
-    window.siteRouter = new Router(routes);
+  /**
+   * @param {string} route 
+   */
+  function navigateTo(route) {
+    let targetUrl;
+    switch (route) {
+      case '/':
+        targetUrl = '/index.html';
+        break;
+      case '/about':
+        targetUrl = '/about.html';
+        break;
+      case '/news':
+        targetUrl = '/news.html';
+        break;
+      case '/404':
+        targetUrl = '/404.html';
+        break;
+      default:
+        targetUrl = route + '.html';
+    }
+    
+    const cleanRoute = route === '/' ? '/' : route;
+    window.history.pushState({}, '', cleanRoute);
+    
+    if (getPageName(window.location.pathname) !== getPageName(targetUrl)) {
+      window.location.href = targetUrl;
+    }
+  }
+  
+  /**
+   * @param {string} route
+   * @returns {boolean}
+   */
+
+  function isValidRoute(route) {
+    const validRoutes = ['/', '/index', '/about', '/news', '/404'];
+    return validRoutes.includes(route) || validRoutes.includes(route + '/');
+  }
+  
+  /**
+   * @param {string} path
+   * @returns {string} 
+   */
+
+  function getPageName(path) {
+    let pageName = path.split('/').pop();
+    
+    if (pageName === '' || pageName === '/') {
+      return 'index';
+    }
+    
+    return pageName.replace('.html', '');
+  }
+  
+  window.addEventListener('popstate', function() {
+    if (!isValidRoute(window.location.pathname)) {
+      navigateTo('/404');
+    }
   });
