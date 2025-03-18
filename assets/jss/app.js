@@ -116,3 +116,37 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', () => {
     feather.replace();
 });
+
+
+//GlowEffect Adjustment
+document.addEventListener('DOMContentLoaded', function() {
+    const titleBanner = document.querySelector('.banner h1');
+    
+    if (titleBanner) {
+      setTimeout(() => {
+        titleBanner.classList.add('text-glow-animation');
+      }, 500); 
+      
+      
+      document.addEventListener('mousemove', (e) => {
+        if (e.clientY < window.innerHeight / 2) {
+          const distanceFromCenter = Math.abs(e.clientX - window.innerWidth / 2);
+          const maxDistance = window.innerWidth / 2;
+          
+          const intensity = 1 - (distanceFromCenter / maxDistance);
+          
+          if (intensity > 0.5) { 
+            titleBanner.style.textShadow = `
+              0 0 ${10 + intensity * 15}px rgba(255, 255, 255, ${0.5 + intensity * 0.3}),
+              0 0 ${20 + intensity * 20}px rgba(255, 255, 255, ${0.3 + intensity * 0.3}),
+              0 0 ${30 + intensity * 20}px rgba(255, 199, 59, ${0.2 + intensity * 0.3})
+            `;
+          } else {
+            titleBanner.style.textShadow = '';
+          }
+        } else {
+          titleBanner.style.textShadow = '';
+        }
+      });
+    }
+  });

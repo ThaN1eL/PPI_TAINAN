@@ -189,6 +189,23 @@ body{
 .banner .bg-9{
     background-image: url('../img/8.png');
 }
+
+@keyframes glowPulse {
+    0% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                   0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+                   0 0 30px rgba(255, 255, 255, 0.5),
+                   0 0 40px rgba(255, 199, 59, 0.3);
+    }
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                   0 0 20px rgba(255, 255, 255, 0.3);
+    }
+  } 
+
 .banner h1{
     position: absolute;
     top: -20%;
@@ -198,7 +215,17 @@ body{
     font-size: 4rem;
     color: #fff;
     text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    animation: glowPulse 4s ease-in-out infinite, letterSpacing 8s ease-in-out infinite;
 }
+
+@keyframes letterSpacing {
+    0%, 100% {
+      letter-spacing: 0;
+    }
+    50% {
+      letter-spacing: 2px;
+    }
+  }
 
 
 /* Intro Section with Glassmorphism */
