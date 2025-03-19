@@ -13,18 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active state from all buttons
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
             });
 
-            // Add active state to clicked button
             button.classList.add('active');
 
-            // Get the filter category
             const filter = button.dataset.filter;
 
-            // Show/hide news items based on filter
             newsItems.forEach(item => {
                 if (filter === 'all' || item.dataset.category === filter) {
                     item.style.display = 'block';
@@ -49,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Reset message
         formMessage.textContent = '';
         formMessage.className = 'form-message';
         
@@ -74,14 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<i data-feather="loader" class="spinner"></i> Subscribing...';
         feather.replace();
         
-        // Form submission using Google Apps Script
         const scriptURL = 'https://script.google.com/macros/s/AKfycbxXI4eF1FX3WQTjGgZYTBVtlWATAebmmgFWPxOFZtA1kzbD8cZn6c9QdBN2bkjdEI9V/exec';
         
-        // Prepare form data
         const formData = new FormData();
         formData.append('email', email);
         
-        // Send to Google Script
         fetch(scriptURL, {
             method: 'POST',
             body: formData
@@ -93,19 +85,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            // Success
             formMessage.textContent = 'Thank you for subscribing!';
             formMessage.classList.add('success');
             emailInput.value = '';
         })
         .catch(error => {
-            // Error
             console.error('Error:', error);
             formMessage.textContent = 'Something went wrong. Please try again later.';
             formMessage.classList.add('error');
         })
         .finally(() => {
-            // Reset button state
             submitBtn.innerHTML = originalBtnText;
             feather.replace();
         });
