@@ -41,40 +41,60 @@
     <div class="container">
         <div class="filter-buttons">
             <button data-filter="all" class="filter-btn active">All</button>
-            <button data-filter="annc" class="filter-btn">Annc.</button>
-            <button data-filter="sport" class="filter-btn">Sport</button>
+            <button data-filter="art" class="filter-btn">Article</button>
             <button data-filter="event" class="filter-btn">Event</button>
+            <button data-filter="other" class="filter-btn">Others</button>
         </div>
-
+            <!-- 1 -->
         <div id="news-container">
             <div class="news-item" data-category="event">
                 <div class="news-image-container">
                     <img src="assets/img/nobar.png" alt="Event Article">
                 </div>
-                <h3>🍽 BUKBER x NOBAR - LAST DAY ⚽️</h3>
+                <h3>🍽 BUKBER x NOBAR - Eps.1 ⚽️</h3>
                 <button @click="openModal('你好, Sobat PPI Tainan!', 'Hari terakhir pendaftaran! Jangan sampai kelewatan kesempatan buat buka puasa bersama sambil nobar seru bareng PPI Tainan!<br>📅 Tanggal : Kamis, 20 Maret 2025<br>⏰ Waktu : 17.00 TST<br>📍 Lokasi : NCKU Kuang-Fu 2 Student Dormitory No.2<br><br>🔥Buka puasa Edisi Spesial!<br>Karna kita bakal buka puasa bersama sambil nobar FIFA World Cup Asian Qualifiers:<br>🇦🇺 Australia vs Indonesia 🇮🇩<br>(Third Round)<br><br>Jangan sampai ketinggalan keseruannya! Ajak teman-temanmu segera daftar sebelum pendaftaran ditutup!<br> <br>⚠️ Deadline Pendaftaran: Rabu, 19 Maret 2025!<br>🔗 Form Kehadiran: <a href=\'https://forms.gle/hg5RMip3VysB7ZaW6\'>LINK FORM</a><br><br>📞 Contact Person:<br>IG: <a href=\'https://instagram.com/ppi_tainan\'>PPI Tainan Instagram</a><br>Line: <a href=\'https://lin.ee/kSSoZUU\'> PPI Tainan LINE</a><br>Whatsapp: 0987261968 (Maureen)<br><br>With love,<br>PPI Tainan 2025 🇮🇩❤️', 'assets/img/nobar.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
-            <div class="news-item" data-category="sport">
+
+            <!-- 2 -->
+            <div class="news-item" data-category="other">
                 <div class="news-image-container">
-                    <img src="assets/img/logo.png" alt="Sport Article">
+                    <img src="assets/img/nobar2.png" alt="Sport Video">
+                    <div class="video-overlay">
+                        <i data-feather="play-circle"></i>
+                    </div>
                 </div>
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, corporis? Praesentium atque temporibus quibusdam magnam facilis maxime, deleniti, rerum, voluptatem commodi aut molestiae? Repellat modi sunt alias aliquid, debitis laborum.', 'assets/img/logo.png')" class="view-detail-btn">
+                <h3>BUKBER x NOBAR - Eps.1<br>🍽After Event⚽️</h3>
+                <button @click="openModal(
+                    'Bukber x Nobar Eps.1 - After Event', 
+                    'Era boleh berganti, hasil boleh berbeda, tapi semangat kita tetap sama!🔥🔥🔥<br> 🇮🇩⚽ Bukber & Nobar kali ini spesial dengan keseruan dan kebersamaan.Terima kasih untuk semua yang sudah datang serta ikut meramaikan!<br>Stay tuned untuk event selanjutnya!🎥',
+                    'assets/videos/nobar.mp4',
+                    [
+                        'assets/img/nobar2.png',
+                        {
+                            src: 'assets/videos/nobar.mp4',
+                            thumbnail: 'assets/img/thumbnail.jpg'
+                        }
+                    ]
+                )" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
+
+            <!-- 3 -->
             <div class="news-item" data-category="event">
                 <div class="news-image-container">
                     <img src="assets/img/logo.png" alt="Event Article">
                 </div>
-                <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Event Article', 'Lorem ipsumdolor sit amet consectetur adipisicing elit. Perferendis ab aliquid cumque laboriosam impedit quas architecto, vero itaque tempore facilis, mollitia commodi fugit officiis voluptate eius sunt, molestiae pariatur excepturi?', 'assets/img/logo.png')" class="view-detail-btn">
+                <h3>🇮🇩NOBAR PPI Tainan - Eps.2⚽️</h3>
+                <button @click="openModal('你好, Sobat PPI Tainan!', 'Bulan Ramadhan makin di ujung,<br>tapi semangat dukung Garuda<br>harus tetap on fire!🔥🔥🔥<br><br>Yuk, kita nobar bareng lagi di minggu terakhir ini pada:<br>🗓 Tanggal : Selasa, 25 Maret 2025<br>⏰ Waktu : 21.45 TST<br>📍 Lokasi : <a href=\'https://maps.app.goo.gl/fjarY2ko5UDX6rNy5?g_st=il\'>Ruang 209 Sipil, NCKU</a><br><br>We’re streaming:<br>FIFA World Cup Asian qualifiers<br>🇮🇩Indonesia VS Bahrain🇧🇭<br><br>Jangan sampai ketinggalan! Gaskeun nobar & dukung Indonesia bersama! 🇮🇩🔥<br><br>📞 Contact Person:<br>IG: <a href=\'https://instagram.com/ppi_tainan\'>PPI Tainan Instagram</a><br>Line: <a href=\'https://lin.ee/kSSoZUU\'> PPI Tainan LINE</a><br>Whatsapp: 0987261968 (Maureen)<br><br>With love,<br>PPI Tainan 2025 🇮🇩❤️', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
-            <div class="news-item" data-category="annc">
+
+            <!-- 4 -->
+            <div class="news-item" data-category="other">
                 <div class="news-image-container">
                     <img src="assets/img/logo.png" alt="Announcement">
                 </div>
@@ -83,21 +103,25 @@
                     View Detail
                 </button>
             </div>
-            <div class="news-item" data-category="sport">
+
+            <!-- 5 -->
+            <div class="news-item" data-category="other">
                 <div class="news-image-container">
                     <img src="assets/img/logo.png" alt="Sport Article">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Sport Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sunt. Suscipit ipsam officia a eum dolore illo nesciunt odit, inventore nam unde, assumenda quis voluptatum adipisci maxime! Nulla, debitis deserunt.', 'assets/img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Others', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, sunt. Suscipit ipsam officia a eum dolore illo nesciunt odit, inventore nam unde, assumenda quis voluptatum adipisci maxime! Nulla, debitis deserunt.', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
+            
+            <!-- 6 -->
             <div class="news-item" data-category="event">
                 <div class="news-image-container">
-                    <img src="assets/img/logo.png" alt="Event Article">
+                    <img src="assets/img/logo.png" alt="Event">
                 </div>
                 <h3>Lorem ipsum dolor sit amet.</h3>
-                <button @click="openModal('Event Article', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consectetur corrupti ea modi, nesciunt magnam? Veniam odio at animi, eveniet, tempora ipsa assumenda dolores voluptates a quasi laborum voluptatem aspernatur!', 'assets/img/logo.png')" class="view-detail-btn">
+                <button @click="openModal('Event', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime consectetur corrupti ea modi, nesciunt magnam? Veniam odio at animi, eveniet, tempora ipsa assumenda dolores voluptates a quasi laborum voluptatem aspernatur!', 'assets/img/logo.png')" class="view-detail-btn">
                     View Detail
                 </button>
             </div>
@@ -119,21 +143,53 @@
         <button class="modal-close" @click="closeModal">&times;</button>
         
         <div class="modal-left">
-            <img :src="modalMainImage" :alt="modalTitle">
-            <div class="additional-images">
-                <template x-for="(imgSrc, i) in modalAdditionalImages" :key="i">
-                    <img 
-                        :src="imgSrc" 
-                        :alt="`Additional image ${i + 1}`"
-                        @click="modalMainImage = imgSrc"
-                    >
+            <div class="media-container">
+                <img 
+                    x-show="modalMediaType === 'image'" 
+                    :src="modalMainMedia" 
+                    :alt="modalTitle"
+                    class="main-media">
+                
+                <div class="video-wrapper">
+                    <video 
+                        x-show="modalMediaType === 'video'"
+                        :src="modalMainMedia"
+                        controls
+                        autoplay
+                        class="main-media"
+                        preload="auto"
+                        controlsList="nodownload">
+                        Your browser does not support the video tag.
+                    </video>
+                    <button 
+                        x-show="videoMuted"
+                        @click="unmuteVideo"
+                        class="unmute-button">
+                        <i data-feather="volume-x"></i> Click to unmute
+                    </button>
+                </div>
+            </div>
+            
+            <div class="additional-media" x-show="modalAdditionalMedia.length > 0">
+                <template x-for="(media, i) in modalAdditionalMedia" :key="i">
+                    <div class="media-thumbnail" @click="setMainMedia(media.src, media.type)">
+                        <img 
+                            :src="media.thumbnail || media.src" 
+                            :alt="`Additional media ${i + 1}`"
+                        >
+                        <i 
+                            x-show="media.type === 'video'" 
+                            class="video-indicator" 
+                            data-feather="play-circle">
+                        </i>
+                    </div>
                 </template>
             </div>
         </div>
         
         <div class="modal-right">
             <h2 x-text="modalTitle"></h2>
-            <div x-html="modalDescription"></div>
+            <div class="modal-description" x-html="modalDescription"></div>
         </div>
     </div>
 </div>
