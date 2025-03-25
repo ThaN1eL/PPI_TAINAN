@@ -330,6 +330,10 @@ body {
     color: #333;
 }
 
+.news-item h5 {
+    margin-left: 0.5rem;
+}
+
 /* View Detail Button */
 .view-detail-btn {
     position: absolute;
@@ -533,7 +537,7 @@ video.main-media {
 }
 
 .modal-right h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
     color: #333;
     position: relative;
@@ -972,15 +976,31 @@ footer {
     }
 
     .media-container {
-        max-height: 250px;
+        max-height: 400px;
     }
     
     .main-media {
-        max-height: 250px;
+        max-height: 200px;
     }
     
     .media-thumbnail {
         width: 50px;
         height: 50px;
+    }
+
+    .modal-content {
+        max-height: 100vh;
+    }
+
+    .media-container img {
+        max-height: 300px;
+        max-width: 100%;
+        width: auto;
+        height: auto; 
+        object-fit: contain;
+    }
+
+    .modal-right h2 {
+        font-size: 1.3rem;
     }
 }
