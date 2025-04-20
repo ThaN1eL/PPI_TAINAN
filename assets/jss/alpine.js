@@ -8,7 +8,7 @@ function app() {
         modalDescription: '',
         videoMuted: false,
         currentPage: 1,
-        itemsPerPage: 10,
+        itemsPerPage: 8,
         currentFilter: 'all',
 
         getMediaType(src) {
