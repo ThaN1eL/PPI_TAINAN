@@ -1,4 +1,5 @@
 # PPI Tainan Website
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ![Lighthouse Score Badge](https://img.shields.io/badge/Lighthouse-90%2B-brightgreen)
 ![Vanilla JS Badge](https://img.shields.io/badge/JavaScript-Vanilla-yellow)
@@ -46,6 +47,9 @@ This project demonstrates that:
 Special thanks to:
 **PPI Tainan for the Opportunity**
 
+## 📜 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](https://github.com/ThaN1eL/PPI_TAINAN/blob/main/license.md) file for details.
 ---
 
 Developed with ❤️ for the Indonesian student community in Tainan
